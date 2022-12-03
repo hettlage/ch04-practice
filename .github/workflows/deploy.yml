@@ -1,0 +1,25 @@
+name: Deployment
+
+on: push
+
+jobs:
+  lint-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Use NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm install
+      - name: Lint
+        run: npm run lint
+      - name: Test
+        run: npm test
+      - name: Build the website
+        run: npm run build
+      - name: Deploy the website
+        run: echo "Deploying the website..."
+
