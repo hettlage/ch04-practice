@@ -1,6 +1,6 @@
 name: Issue
 
-on: issue
+on: issues
 
 jobs:
   issue-details:
